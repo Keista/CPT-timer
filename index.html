@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
+    <header>CPT Timer --- Harley Greytak</header>
+    <Script>
+        function loadBod(){
+
+        }
+
+        function addTimeSelection(){alert("adding a line"); createSelect()};
+        function createSelect(){
+            var selectHRs = document.createElement("select")
+            var selectMins = document.createElement("select")
+
+            selectHRs.name = 'hour'
+            selectHRs.id = 'hr'
+            for(var i = 0; i<=24; i++){
+                valueNum = i.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})
+                var htmltext = '<option value="'+ valueNum +'">' + valueNum + '</option>'
+                selectHRs.innerHTML += htmltext
+            }
+            document.body.append(selectHRs)
+
+            selectMins.name = 'minute'
+            selectMins.id = 'minu'
+            for(var i = 0; i<=11; i++){
+                var value = i * 5
+                valueNum = value.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})
+                var htmltext = '<option value="'+ valueNum +'">' + valueNum + '</option>'
+                selectMins.innerHTML += htmltext
+            }
+            document.body.append(selectMins)
+        }
+    </Script>
 </head>
 
-<body>
+<body onload="loadBod()">
     
 </body>
 </html>
+
+<!-- 1. loading page
+        a. title
+        b. current time zone, current time
+        c. site time zone, reference time zone
+        d. cpt time selection
+        e. local time display
+        f. set timer button
+        g. choose ring tone :)
+     2. adding times
+     3. convert to local time
+     4. set timer/alarm
+--> 
