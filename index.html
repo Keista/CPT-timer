@@ -8,7 +8,10 @@
 
         }
 
-        function addTimeSelection(){alert("adding a line"); createSelect()};
+        function conjCurrentDateTime(){
+            
+            return 0 
+        }
         function createSelect(){
             var selectHRs = document.createElement("select")
             var selectMins = document.createElement("select")
@@ -32,11 +35,25 @@
             }
             document.body.append(selectMins)
         }
+
+        function setSitetime(timeZoneValue){
+            return new Date((typeof date === "string" ? new Date(date) : date).now.toLocaleString("en-US", {timeZone: timeZoneValue}))
+        }
     </Script>
 </head>
 
 <body onload="loadBod()">
-    
+    <div class="times">
+        <div class="select timezone">
+            <select name="site time" id="" onchange="setSitetime(value)">
+                <option value="pst">pst</option>
+                <option value="mst">mst</option>
+                <option value="cst">cst</option>
+                <option value="est">est</option>
+            </select>
+            <label for="site time"></label>
+        </div>
+    </div>
 </body>
 </html>
 
