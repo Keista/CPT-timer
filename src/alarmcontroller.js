@@ -73,21 +73,14 @@ class AlarmController {
     var min1 = min;
     var slam1 = slam;
     console.log(hr1 +'   ' + min1 + '   ' + slam1);
+    var cptTime = min1 - slam1;
 
-    if(min1 < slam1) {
-      if (hr1 === 0 ){
-        hr1 = 23;
-      } else{
-        hr1 = hr1 -1;
-        min1 = 60 - (slam1 - min1);
-      }
-    } else{
-      if (hr1 === 0){
-        hr1 = 24;
-      }else{
-        min1 = min1 - slam1;
-      }
-     
+    if(cptTime < 0){
+      min1 = 60 + cptTime;
+      hr1 = hr1 -1;
+      if (hr1 < 0) hr1 = 23;
+    } else {
+      min1 = cptTime;
     }
     console.log(hr1 +'   ' + min1 + '   ' + slam1);
 
