@@ -79,6 +79,7 @@ class AlarmController {
       min1 = 60 + cptTime;
       hr1 = hr1 -1;
       if (hr1 < 0) hr1 = 23;
+      if (hr1 == 0) hr1 = 24;
     } else {
       min1 = cptTime;
     }
