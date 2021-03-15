@@ -1,71 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <script src="./src/alarmview.js"></script>
+    <script src="./src/alarmcontroller.js"></script>
+    <script src="./src/alarmapp.js"></script>
+    <script src="./src/alarm.js"></script>
+    <script src="./src/main.js"></script>
+    <link rel="stylesheet" href="./stylesheet/application.css">
+    <link rel="stylesheet" href="./stylesheet/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
-<head>
-    <header>CPT Timer --- Harley Greytak</header>
-    <Script>
-        function loadBod(){
+    <meta charset="utf-8">
+    <title>Alarm Clock</title>
+  </head>
 
-        }
+  <body>
+    
 
-        function conjCurrentDateTime(){
-            
-            return 0 
-        }
-        function createSelect(){
-            var selectHRs = document.createElement("select")
-            var selectMins = document.createElement("select")
+    <div class="alarm-container">
+      <h1>Alarm Clock</h1>
 
-            selectHRs.name = 'hour'
-            selectHRs.id = 'hr'
-            for(var i = 0; i<=24; i++){
-                valueNum = i.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})
-                var htmltext = '<option value="'+ valueNum +'">' + valueNum + '</option>'
-                selectHRs.innerHTML += htmltext
-            }
-            document.body.append(selectHRs)
-
-            selectMins.name = 'minute'
-            selectMins.id = 'minu'
-            for(var i = 0; i<=11; i++){
-                var value = i * 5
-                valueNum = value.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})
-                var htmltext = '<option value="'+ valueNum +'">' + valueNum + '</option>'
-                selectMins.innerHTML += htmltext
-            }
-            document.body.append(selectMins)
-        }
-
-        function setSitetime(timeZoneValue){
-            return new Date((typeof date === "string" ? new Date(date) : date).now.toLocaleString("en-US", {timeZone: timeZoneValue}))
-        }
-    </Script>
-</head>
-
-<body onload="loadBod()">
-    <div class="times">
-        <div class="select timezone">
-            <select name="site time" id="" onchange="setSitetime(value)">
-                <option value="pst">pst</option>
-                <option value="mst">mst</option>
-                <option value="cst">cst</option>
-                <option value="est">est</option>
-            </select>
-            <label for="site time"></label>
+      <form id="alarm-form">
+        <div class="alarm-inputs">
+          <div class="input-container">
+            <input id="alarmHr" class="alarm-input" maxlength="2" placeholder="HR">
+            <input id="alarmMin" class="alarm-input" maxlength="2" placeholder="MIN">
+            <input id="slamTime" class="alarm-input" maxlength="2" placeholder="SLAM">
+          </div>
+          
         </div>
-    </div>
-</body>
-</html>
 
-<!-- 1. loading page
-        a. title
-        b. current time zone, current time
-        c. site time zone, reference time zone
-        d. cpt time selection
-        e. local time display
-        f. set timer button
-        g. choose ring tone :)
-     2. adding times
-     3. convert to local time
-     4. set timer/alarm
---> 
+        <button class="alarm-submit-btn" form="alarm-form" type="submit" name="button">
+          SET ALARM
+        </button>
+      </form>
+
+      <div id="alarm-list" class="alarm-list-container">
+          <div class="alarm-el">No Alarms</div>
+      </div>
+    </div>
+
+    <div class="clock-container">
+      <div class="clock-border">
+        <div id="clock" class="clock"></div>
+      </div>
+    </div>
+  </body>
+</html>
