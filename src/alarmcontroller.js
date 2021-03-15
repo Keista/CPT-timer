@@ -79,7 +79,7 @@ class AlarmController {
         hr1 = 23;
       } else{
         hr1 = hr1 -1;
-        min1 = 60 - min1 - slam1;
+        min1 = 60 - (slam1 - min1);
       }
     } else{
       if (hr1 === 0){
