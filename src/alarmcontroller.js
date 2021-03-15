@@ -84,8 +84,10 @@ class AlarmController {
     } else{
       if (hr1 === 0){
         hr1 = 24;
+      }else{
+        min1 =slam1 - min1;
       }
-      min1 =60 - (slam1 - min1);
+     
     }
     console.log(hr1 +'   ' + min1 + '   ' + slam1);
 
