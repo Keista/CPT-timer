@@ -24,7 +24,7 @@ class Alarm {
   isValid() {
     return this.hr > 0 && this.hr < 25
       && this.min > -1 && this.min < 60
-      && this.slam > -1 && this.slam < 60;
+      && this.slam > -1 && this.slam < 300;
   }
 
   // Convert to US string format
